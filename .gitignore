@@ -1,0 +1,5 @@
+token
+tags
+.vim/*
+.mypy_cache/
+test.py
