@@ -4,16 +4,19 @@
 
 import json
 import requests
+import os
 
-with open('assets/token', 'r') as tk:
+basedir = os.path.dirname(__file__) + '/'
+
+with open(basedir + 'assets/token', 'r') as tk:
     token = tk.readline().strip()
 
 url = 'https://api.frdic.com/api/open/v1/studylist/words'
-header = {"content-type":"application/json", "Authorization": token}
+header = { "content-type": "application/json", "Authorization": token }
 
 data = {"id": "0", "language": "en", "words": []}
 
-with open('assets/vocabulary', 'r') as v:
+with open(basedir + 'assets/vocabulary', 'r') as v:
     for line in v.readlines():
         data['words'].append(line.strip())
 
